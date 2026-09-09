@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>İş Sözleşmesi Oluşturucu</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>📋 İş Sözleşmesi Oluşturucu</h1>
+      <p>Yapay Zeka destekli sözleşme generator</p>
+    </header>
+
+    <main>
+      <div class="progress-bar">
+        <div class="step active" id="step1">
+          <span>1</span>
+          <label>Bilgi Giriş</label>
+        </div>
+        <div class="step" id="step2">
+          <span>2</span>
+          <label>Sözleşme Oluştur</label>
+        </div>
+      </div>
+
+      <!-- Aşama 1: Form -->
+      <section id="stage1" class="stage active">
+        <form id="contractForm">
+          <div class="form-group">
+            <label for="companyName">Şirket Adı *</label>
+            <input type="text" id="companyName" name="companyName" required placeholder="Şirketinizin adını girin">
+          </div>
+
+          <div class="form-group">
+            <label for="clientName">Müşteri/İşçi Adı *</label>
+            <input type="text" id="clientName" name="clientName" required placeholder="Müşteri veya işçi adını girin">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="jobDuration">İş Süresi *</label>
+              <input type="text" id="jobDuration" name="jobDuration" required placeholder="Örn: 30 gün, 3 ay">
+            </div>
+
+            <div class="form-group">
+              <label for="startDate">Başlangıç Tarihi *</label>
+              <input type="date" id="startDate" name="startDate" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="advance">Peşinat (₺)</label>
+              <input type="number" id="advance" name="advance" placeholder="0">
+            </div>
+
+            <div class="form-group">
+              <label for="deposit">Kapora (₺)</label>
+              <input type="number" id="deposit" name="deposit" placeholder="0">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="salary">Ücret (₺) *</label>
+            <input type="number" id="salary" name="salary" required placeholder="Toplam ücret">
+          </div>
+
+          <div class="form-group">
+            <label for="jobDescription">İş Tanımı *</label>
+            <textarea id="jobDescription" name="jobDescription" required placeholder="Yapılacak işin detaylı açıklamasını girin"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Sözleşme Oluştur</button>
+        </form>
+      </section>
+
+      <!-- Aşama 2: Sözleşme Gösterimi -->
+      <section id="stage2" class="stage">
+        <div class="contract-preview">
+          <div id="contractPreview"></div>
+        </div>
+
+        <div class="action-buttons">
+          <button class="btn btn-secondary" onclick="goBackToForm()">Geri Dön</button>
+          <button class="btn btn-success" id="downloadBtn" style="display: none;">📥 PDF İndir</button>
+        </div>
+
+        <div id="loadingSpinner" class="spinner" style="display: none;">
+          <div class="spinner-inner"></div>
+          <p>Sözleşme oluşturuluyor...</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 İş Sözleşmesi Oluşturucu | Tüm Hakları Saklıdır</p>
+    </footer>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
